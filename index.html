@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wait Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <header>
+            <h1>Wait Game</h1>
+            <div id="resources">
+                <div class="resource">
+                    <span class="resource-name">Focus Points:</span>
+                    <span id="focus-points">0</span>
+                </div>
+                <div class="resource">
+                    <span class="resource-name">Time Tokens:</span>
+                    <span id="time-tokens">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="waiting-section">
+                <h2>Focus Session</h2>
+                <div id="timer-display">00:00</div>
+                <div id="session-controls">
+                    <button id="start-session" class="primary-btn">Start Focus Session</button>
+                    <div id="session-options" class="hidden">
+                        <button id="five-min" class="time-btn">5 Min</button>
+                        <button id="ten-min" class="time-btn">10 Min</button>
+                        <button id="fifteen-min" class="time-btn">15 Min</button>
+                        <button id="twenty-min" class="time-btn">20 Min</button>
+                        <button id="custom-time" class="time-btn">Custom</button>
+                    </div>
+                    <div id="custom-time-input" class="hidden">
+                        <input type="number" id="minutes-input" min="1" max="120" value="5">
+                        <button id="confirm-custom-time" class="time-btn">Confirm</button>
+                    </div>
+                    <button id="cancel-session" class="secondary-btn hidden">Cancel Session</button>
+                </div>
+                <div id="session-info" class="hidden">
+                    <p>Current reward: <span id="current-reward">0</span> Focus Points</p>
+                    <p>Stay focused to earn rewards!</p>
+                </div>
+            </section>
+
+            <section id="upgrades-section">
+                <h2>Upgrades</h2>
+                <div id="upgrades-container">
+                    <!-- Upgrades will be dynamically added here -->
+                </div>
+            </section>
+
+            <section id="stats-section">
+                <h2>Statistics</h2>
+                <div id="stats-container">
+                    <p>Total time focused: <span id="total-focus-time">0</span> minutes</p>
+                    <p>Focus sessions completed: <span id="completed-sessions">0</span></p>
+                    <p>Focus points earned: <span id="total-focus-points">0</span></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>
