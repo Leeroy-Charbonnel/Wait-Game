@@ -43,7 +43,8 @@ export type ResearchID =
     | 'parallel_processing' 
     | 'advanced_automation'
     | 'efficiency_algorithms'
-    | 'nano_fabrication';
+    | 'nano_fabrication'
+    | 'focus_training';
 
 export type TabID = 
     | 'production' 
@@ -68,6 +69,7 @@ export interface GameState {
     components: Record<ComponentID, number>;
     machines: Record<MachineID, number>;
     researchCompleted: ResearchID[];
+    researchCompletionCounts?: Record<ResearchID, number>;
     activeResearch: {
         id: ResearchID | null;
         startTime: number;
