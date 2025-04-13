@@ -1,1 +1,0 @@
-bun --watch run dev
