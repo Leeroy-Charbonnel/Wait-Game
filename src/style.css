@@ -1,0 +1,448 @@
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+  line-height: 1.5;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+button {
+  font-family: 'Courier New', monospace;
+  background-color: white;
+  border: 1px solid black;
+  padding: 4px 8px;
+  margin: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
+
+button:disabled {
+  color: #999;
+  cursor: not-allowed;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 24px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 5px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #000;
+  padding-bottom: 3px;
+}
+
+/* Game Container */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
+/* Header */
+.game-header {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+}
+
+/* Resources Display */
+.resources-display {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #000;
+  background-color: white;
+}
+
+.resource-section {
+  min-width: 150px;
+  margin: 0 10px;
+}
+
+.resources-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-item {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+/* Tab Navigation */
+.tabs-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  /* Ensure tabs have a minimum height */
+  max-height: calc(100vh - 200px);
+  /* Limit max height to ensure footer visibility */
+  overflow: hidden;
+  /* Hide overflow to prevent scrolling */
+}
+
+.tab-nav {
+  display: flex;
+  border-bottom: 1px solid #000;
+  margin-bottom: 10px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tab-button {
+  background: none;
+  border: 1px solid #000;
+  padding: 5px 10px;
+  margin: 0 2px -1px 0;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  border-bottom: 1px solid white;
+  font-weight: bold;
+}
+
+.tab-content {
+  flex: 1;
+  padding: 10px 0;
+  overflow-y: auto;
+  /* Allow scrolling within tab content */
+  max-height: calc(100vh - 250px);
+  /* Ensure content can scroll but footer remains visible */
+}
+
+.tab-pane {
+  display: none;
+  padding-bottom: 80px;
+  /* Add padding to ensure content doesn't get cut off by footer */
+}
+
+/* Component Lists */
+.component-section,
+.machine-section,
+.research-section {
+  margin-bottom: 20px;
+}
+
+.components-list,
+.machines-list,
+.available-research {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.component-item,
+.machine-item,
+.research-item,
+.tech-item {
+  border: 1px solid #000;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.component-header,
+.machine-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.component-name,
+.machine-name,
+.research-name,
+.tech-name {
+  font-weight: bold;
+}
+
+.component-description,
+.machine-description,
+.research-description {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.component-recipe,
+.machine-cost,
+.machine-compatible,
+.research-requirements,
+.research-rewards {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.machine-upgrades {
+  margin-top: 10px;
+  border-top: 1px dashed #000;
+  padding-top: 5px;
+}
+
+.machine-upgrade-item {
+  padding: 5px;
+  margin-top: 5px;
+  border-left: 3px solid #ddd;
+}
+
+/* Active Production */
+.production-section {
+  margin-top: 20px;
+}
+
+.production-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.production-item {
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.progress-container {
+  height: 15px;
+  background-color: #f0f0f0;
+  margin: 5px 0;
+  border: 1px solid #000;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #000;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Research */
+.active-research {
+  padding: 10px;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+}
+
+.research-progress-container {
+  height: 20px;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.research-progress-bar {
+  height: 100%;
+  background-color: #000;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+}
+
+.research-progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.progress-text {
+  text-align: right;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/* Tech Tree */
+.tech-tree-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tech-tier {
+  border-left: 2px solid #000;
+  padding-left: 15px;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-item {
+  width: 180px;
+  padding: 8px;
+  border: 1px solid #000;
+}
+
+.tech-item.completed {
+  background-color: #f0f0f0;
+  border: 1px solid #999;
+}
+
+.tech-time {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Inventory */
+.inventory-section {
+  margin-bottom: 20px;
+}
+
+.inventory-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 5px;
+}
+
+.inventory-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-bottom: 1px dashed #ddd;
+}
+
+/* Footer */
+.game-footer {
+  padding: 10px 0;
+  margin-top: auto;
+  border-top: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 1000;
+}
+
+.game-footer-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.game-time {
+  font-size: 14px;
+}
+
+/* Custom Modal */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background-color: white;
+  border: 2px solid black;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  font-family: 'Courier New', monospace;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px dashed #000;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+/* ASCII Art Progress Bar */
+.ascii-progress {
+  font-family: monospace;
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1;
+  margin: 5px 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .resources-display {
+    flex-direction: column;
+  }
+
+  .tab-nav {
+    flex-wrap: wrap;
+  }
+
+  .tech-list {
+    flex-direction: column;
+  }
+
+  .inventory-list {
+    grid-template-columns: 1fr;
+  }
+
+  .game-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
